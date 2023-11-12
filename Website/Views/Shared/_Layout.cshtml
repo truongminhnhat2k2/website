@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Hieu &mdash; Ho</title>
+    <title>Minh &mdash; Nhat</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -51,10 +51,23 @@
                         <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span> info@mydomain.com</a>
                     </div>
                     <div class="col-lg-3 text-right">
-                        @*@<a href="login.html" class="small mr-3"><span class="icon-unlock-alt"></span> Log In</a>*@
-                        @Html.ActionLink("Login", "Index", "Login", new { }, null)
-                        @*@<a href="register.html" class="small btn btn-primary px-4 py-2 rounded-0"><span class="icon-users"></span> Register</a>*@
-                        @Html.ActionLink("Register", "Index", "Register", new { }, null)
+                        <ul>
+                            @if (Session["idUser"] != null)
+                            {
+                                <li>
+                                    <a href="~/Admin/Home/Index">Trang quan tri</a>
+                                </li>
+                                <li>
+                                    <a href="~/Home/Logout" class="btn btn - warning">Logout</a>
+                                </li>
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Login", "Login", "Home", new { }, null)
+                                @*@<a href="register.html" class="small btn btn-primary px-4 py-2 rounded-0"><span class="icon-users"></span> Register</a>*@
+                                @Html.ActionLink("Register", "Register", "Home", new { }, null)
+                            }
+                        </ul>
 
                     </div>
                 </div>
@@ -74,12 +87,12 @@
                             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                                 <li class="active">
                                     @*<a href="index.html" class="nav-link text-left">Home</a>*@
-                                    @Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link text-left" }, null)
+                                    @Html.ActionLink("Trang chu", "Index", "Home", new { @class = "nav-link text-left" }, null)
 
                                 </li>
                                 <li class="has-children">
                                     @*<a href="about.html" class="nav-link text-left">About Us</a>*@
-                                    @Html.ActionLink("About", "Index", "About", new { @class = "nav-link text-left" }, null)
+                                    @Html.ActionLink("Gioi thieu", "Index", "About", new { @class = "nav-link text-left" }, null)
 
                                     <ul class="dropdown">
                                         <li><a href="teachers.html">Our Teachers</a></li>
@@ -87,19 +100,15 @@
 
                                     </ul>
                                 </li>
-                                <li>
-                                    @* <a href="admissions.html" class="nav-link text-left">Admissions</a>*@
-                                    @Html.ActionLink("Admissions", "Index", "Admissions", new { @class = "nav-link text-left" }, null)
-
-                                </li>
+                               
                                 <li>
                                     @*@ <a href="courses.html" class="nav-link text-left">Courses</a>*@
-                                    @Html.ActionLink("Courses", "Index", "Courses", new { @class = "nav-link text-left" }, null)
+                                    @Html.ActionLink("Thong tin", "Index", "Courses", new { @class = "nav-link text-left" }, null)
 
                                 </li>
                                 <li>
                                     @* <a href="contact.html" class="nav-link text-left">Contact</a>*@
-                                    @Html.ActionLink("Contact", "Index", "Contact", new { @class = "nav-link text-left" }, null)
+                                    @Html.ActionLink("Ho tro", "Index", "Contact", new { @class = "nav-link text-left" }, null)
 
                                 </li>
                             </ul>                                                                                                                                                                                                                                                                                          </ul>
